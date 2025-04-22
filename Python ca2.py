@@ -27,10 +27,9 @@ Q1 = de["Value"].quantile(0.25)
 Q2 = de["Value"].median()
 Q3 = de["Value"].quantile(0.75)
 
-# Assign quartile range
+# completing quartile range
 de["Quartile Range"] = de["Value"].apply(lambda x: "Q1" if x <= Q1 else "Q2" if x <= Q2 else "Q3" if x <= Q3 else "Q4")
 
-# Delete the "Suppression Flag" column
 de.drop(columns=["Suppression Flag"], inplace=True)
 
 # Convert both date columns to a consistent format (YYYY-MM-DD)
@@ -38,16 +37,15 @@ de["Time Period Start Date"] = pd.to_datetime(de["Time Period Start Date"]).dt.s
 de["Time Period End Date"] = pd.to_datetime(de["Time Period End Date"]).dt.strftime("%Y-%m-%d")
 
 
-pd.set_option('display.max_rows', 10500)
-pd.set_option('display.max_columns', 50)
-print(de)
+#pd.set_option('display.max_rows', 10500)
+#pd.set_option('display.max_columns', 50)
+#print(de)
 
 '''
 dfd=pd.read_csv("C:/Users/hp/OneDrive/Desktop/pythonProject.csv")
 dt=dtale.show(dfd)
 dt.open_browser()
 '''
-
 
 #visualization 
 #Bar Plot – Average Value by State
